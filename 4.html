@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="task">
+            <h2>4 задание.</h2>
+            <p>Римское число</p>
+            <input type="text" id="number" autocomplete="off">
+            <p>Арабское число</p>
+            <p id="result">0</p>
+            <div class="links">
+                <a href="1.html">Задание 1</a>
+                <a href="3.html">Задание 3</a>
+                <a href="4.html">Задание 4</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    let input_namber = document.getElementById('number')
+    let symbols = {
+        "M": 1000,
+        "D": 500,
+        "C": 100,
+        "L": 50,
+        "X": 10,
+        "V": 5,
+        "I": 1,
+    }
+    let number
+    let result = 0
+    input_namber.oninput = function () {
+        number = input_namber.value.split('')
+        number.forEach((element, index) => {
+            if (number[index + 1]) {
+                if (symbols[element] >= symbols[number[index + 1]]) {
+                    result += symbols[element]
+                } else {
+                    result += symbols[number[index + 1]] - symbols[element]
+                    number.splice(index + 1, 1)
+                    console.log(number);
+                }
+            } else {
+                result += symbols[element]
+            }
+        })
+        if(!result){
+            result = 'Некоректная запись'
+        }
+        document.getElementById('result').innerHTML = result
+        result = 0
+    }
+</script>
+
+</html>

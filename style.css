@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  width: 100vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2633;
+}
+
+body {
+  background-color: #f7f8fa;
+  font-size: 20px;
+}
+
+.wrapper {
+  width: 90%;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 36px;
+}
+.wrapper .task {
+  background: #ffffff;
+  box-shadow: 0px 1px 3px rgba(96, 108, 128, 0.05);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 12px;
+}
+.wrapper .task ul {
+  list-style: none;
+  -moz-column-count: 4;
+       column-count: 4;
+}
+.wrapper .task .links {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper .task a {
+  color: #606c80;
+  font-weight: 700;
+  text-decoration: none;
+}
+.wrapper .task a:hover {
+  color: #2563eb;
+}
+.wrapper .task input {
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #ebeef2;
+  border-radius: 16px;
+}
+.wrapper .task button {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2563eb;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 10px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

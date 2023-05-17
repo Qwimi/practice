@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="task">
+            <h2>3 задание.</h2>
+            <p>Введите слова через пробел</p>
+            <input type="text" id="words" autocomplete="off">
+            <button id="sent">Получить результат</button>
+            <p>Пересечения</p>
+            <p id="intersection"></p>
+            <div class="links">
+                <a href="1.html">Задание 1</a>
+                <a href="3.html">Задание 3</a>
+                <a href="4.html">Задание 4</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let text_input = document.getElementById('words')
+    let words = []
+    let result = []
+    let btn = document.getElementById('sent')
+
+    btn.onclick = function () {
+        words = text_input.value.split(' ').sort((a, b) => {
+            if (b.length > a.length) return -1
+            if (b.length == a.length) return 0
+            if (b.length < a.length) return 1
+        })
+        let chars = words[0].split('')
+        result = words.reduce((total_chars, element) => {
+            let word_chars = element.split('')
+            total_chars.forEach((el, i) => {
+                if (!word_chars.includes(el)) {
+                    total_chars[i] = ' '
+                } else {
+                    word_chars.splice(word_chars.indexOf(el), 1)
+                }
+            })
+            return total_chars
+        }, chars);
+        result = result.filter(el => {
+            if (el !== " ") return el
+        })
+        document.getElementById('intersection').innerHTML = result
+    }
+</script>
+
+</html>
